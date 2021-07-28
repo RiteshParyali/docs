@@ -157,6 +157,15 @@ and supply the array version of that data in ``$this->request->getData()``.
 You can also wire in additional deserializers for alternate formats if you
 need them, using :php:meth:`BodyParserMiddleware::addParser()`.
 
+In src/Application.php, add the following to the class imports:
+    
+    use Cake\Http\Middleware\BodyParserMiddleware;
+    
+Then add ``AuthenticationMiddleware`` to the middleware queue in your ``middleware()`` function::
+
+    $middlewareQueue->add(new BodyParserMiddleware());
+    
+    
 RESTful Routing
 ===============
 
